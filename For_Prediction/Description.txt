@@ -1,0 +1,8 @@
+% 9 out of 10 谢老师说的cities可以用;用South San Jose的data & ML solver时说reference to non-existent field (估计是ML solver问题), 但目前取点做demo应该也够了
+% 简单描述一下ramping event extraction: 我只用了GHI作为defining ramping event的标准 (如果daily average GHI lie beyond upper or lower confidence interval of the average GHI values for the past window size many days, 那么该天就是1). 然后取点的时候大部分都是uniform 3-3, 除了San Mateo
+% 不完全一致, 但是sensor之间足够接近. 无论uniform与否K (number of sensors) 都是9
+% 另外, window size & delta统一设置为30天 & 0.01, memory depth统一为10
+% .mat文件里按照你截图里的顺序和格式存了beta (using LS and ML), K, d, 和test data.
+% 我看了下.mat文件可以直接用scipy.io.loadmat 读出来. 
+% 我看原来to_MatrixDaily是3285-1, 因此换成了365-9 (像你微信图里说的)
+% 老哥有别的问题再告诉我, 如果你对data description有不清楚的也告诉我。基本上我都是找这些城市的coordinate, 然后按照我们说的上下左右&斜方相距0.08度.
